@@ -1,10 +1,12 @@
 var http = require("http");
 var port = 8888;
 
-http.createServer(function(request, response){
+function onRequest(request, response){
   response.writeHead(200, {"Content-Type": "text/plain"});
   response.write("Hello World");
   response.end();
-}).listen(port);
+}
+
+http.createServer(onRequest).listen(port);
 
 console.log("Server has started listening on port " + port);
